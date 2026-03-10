@@ -2,16 +2,19 @@ services:
   - type: web
     name: kuznechny-user
     runtime: docker
-    repo: https://github.com/ТВОЙ-ЛОГИН/kuznechny-user.git
+    repo: git@github.com:ananima77-ship-it/kuznechny-user.git
     plan: free
     region: frankfurt
+    branch: main
     envVars:
       - key: APP_KEY
-        value: "base64:$(php artisan key:generate --show)"
+        value: base64:p94+EVhPGz2Tv4QFbTEySUq24MqexORosW6ehIX0kSQ=
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
         value: false
+      - key: DB_CONNECTION
+        value: pgsql
       - key: DATABASE_URL
         fromDatabase:
           name: kuznechny-db
